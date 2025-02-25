@@ -97,8 +97,8 @@ for i=1:IterN
         DiffX(:,m)      = PnX(:,i)-MicCoord(m,1);
         DiffY(:,m)      = PnY(:,i)-MicCoord(m,2);
         DiffZ(:,m)      = PnZ(:,i)-MicCoord(m,3);
-        DistanceS(:,m)  = DiffX(:,m).^2+DiffY(:,m).^2;
-        DistanceE(:,m)  = PnX(:,i).^2+PnY(:,i).^2;
+        DistanceS(:,m)  = DiffX(:,m).^2+DiffY(:,m).^2+DiffZ(:,m).^2;
+        DistanceE(:,m)  = PnX(:,i).^2+PnY(:,i).^2+PnZ(:,i).^2;
         Hn(:,m)         = exp(1i*k*sqrt(DistanceS(:,m)))./ ...
                           sqrt(DistanceS(:,m))/(4*pi);
         Pnscale(:,m)    = sqrt(DistanceE(:,m)).*exp(-1i*k* ...
